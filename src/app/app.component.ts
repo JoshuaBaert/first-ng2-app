@@ -22,17 +22,20 @@ export class AppComponent {
   allowNewServer = false;
   serverCreationStatus = 'No server was created';
   serverName = 'test server';
+  serverCreated = false;
 
   constructor() {
     setTimeout(() => {this.allowNewServer = true},2000);
   }
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server was created.'
+    this.serverCreationStatus = 'Server was created.';
+    this.serverCreated = true;
   }
 
   onUpdateServerName(event) {
     this.serverName = event.target.value;
+    this.serverCreated = false;
   }
 
 }
